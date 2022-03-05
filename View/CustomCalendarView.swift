@@ -20,7 +20,7 @@ struct CustomCalendarView: View {
             
             // Days
             let days: [String] =
-            ["S", "M", "T", "W", "T", "F", "S"]
+            ["일", "월", "화", "수", "목", "금", "토"]
             
             HStack(spacing: 20) {
                 
@@ -86,7 +86,7 @@ struct CustomCalendarView: View {
             let columns = Array(repeating: GridItem(.flexible()), count: 7)
             
 
-            LazyVGrid(columns: columns, spacing: 15) {
+            LazyVGrid(columns: columns) {
                 ForEach(extractDate()) { value in
                     cardView(value: value)
                         .background(
@@ -207,6 +207,7 @@ extension Date {
         //Getting start Date
         let startDate = calendar.date(from: Calendar.current.dateComponents([.year, .month], from: self))!
         
+        //.weekOfMonth == 이번 달에 해당하는 이번 주
         let range = calendar.range(of: .day, in: .weekOfMonth,
             for: startDate)!
         
