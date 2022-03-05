@@ -12,6 +12,9 @@ struct CalendarView: View {
     var body: some View {
         VStack {
             HStack {
+                Text("TodoDay")
+                    .font(.title)
+                    .fontWeight(.semibold)
                 Spacer()
                 Image(systemName: "trash")
                     .font(.title2)
@@ -21,7 +24,7 @@ struct CalendarView: View {
                     .font(.title2)
                     .padding(.trailing, 5)
             }
-            .padding()
+            .padding([.bottom, .leading, .trailing], 18)
         
             CustomCalendarView()
             
