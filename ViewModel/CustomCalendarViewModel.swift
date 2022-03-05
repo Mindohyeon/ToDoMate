@@ -9,20 +9,20 @@ import Foundation
 
 class CustomCalendarViewModel : ObservableObject {
     
-    @Published var currentMonth : Int = 0
+    @Published var currnetWeek: Int = 0
     @Published var currentDate : Date = Date()
     
     
-    func getCurrentMonth() -> Date {
+    func getCurrentWeek() -> Date {
         
         let calendar = Calendar.current
         
-        guard let currentMonth = calendar.date(byAdding: .month, value: self.currentMonth, to: Date())
+        guard let currentWeek = calendar.date(byAdding: .weekday, value: self.currnetWeek, to: Date())
         else {
             return Date()
         }
         
-        return currentMonth
+        return currentWeek
         
     }
     
