@@ -41,7 +41,7 @@ struct CustomCalendarView: View {
                 Button {
                     
                     withAnimation {
-                        viewModel.currentMonth -= 1
+                        viewModel.currnetWeek -= 1
                     }
                     
                     
@@ -55,7 +55,7 @@ struct CustomCalendarView: View {
                 Button {
                     
                     withAnimation {
-                        viewModel.currentMonth += 1
+                        viewModel.currnetWeek += 1
                     }
                     
                 } label: {
@@ -109,10 +109,10 @@ struct CustomCalendarView: View {
         }
         // currentMonth 값이 변경되었을 때 실행
         // newValue 는 비교 검사에 실패한 새 값
-        .onChange(of: viewModel.currentMonth) { newValue in
+        .onChange(of: viewModel.currnetWeek) { newValue in
             
             //updating month
-            viewModel.currentDate = viewModel.getCurrentMonth()
+            viewModel.currentDate = viewModel.getCurrentWeek()
         }
     }
     
@@ -171,7 +171,7 @@ struct CustomCalendarView: View {
         let calendar = Calendar.current
         
         //Getting current Month Date
-        let currentMonth = viewModel.getCurrentMonth()
+        let currentMonth = viewModel.getCurrentWeek()
         
         var days = currentMonth.getAllDates().compactMap { date -> DateValue in
             
@@ -207,7 +207,7 @@ extension Date {
         //Getting start Date
         let startDate = calendar.date(from: Calendar.current.dateComponents([.year, .month], from: self))!
         
-        let range = calendar.range(of: .day, in: .month,
+        let range = calendar.range(of: .day, in: .weekOfMonth,
             for: startDate)!
         
         //Getting date
