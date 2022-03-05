@@ -1,0 +1,390 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DF224BDB27D1BFD50081D296 /* ToDoMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF224BDA27D1BFD50081D296 /* ToDoMateApp.swift */; };
+		DF224BDD27D1BFD50081D296 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF224BDC27D1BFD50081D296 /* ContentView.swift */; };
+		DF224BDF27D1BFD70081D296 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF224BDE27D1BFD70081D296 /* Assets.xcassets */; };
+		DF224BE227D1BFD70081D296 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF224BE127D1BFD70081D296 /* Preview Assets.xcassets */; };
+		DF224BEB27D1EE7D0081D296 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF224BEA27D1EE7D0081D296 /* DateValue.swift */; };
+		DF224BED27D1EF070081D296 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF224BEC27D1EF070081D296 /* CalendarView.swift */; };
+		DF224BEF27D1EF780081D296 /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF224BEE27D1EF780081D296 /* CustomCalendarView.swift */; };
+		DF224BF227D358F50081D296 /* CustomCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF224BF127D358F50081D296 /* CustomCalendarViewModel.swift */; };
+		DF224BF427D35D6C0081D296 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF224BF327D35D6C0081D296 /* Task.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DF224BD727D1BFD50081D296 /* ToDoMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF224BDA27D1BFD50081D296 /* ToDoMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoMateApp.swift; sourceTree = "<group>"; };
+		DF224BDC27D1BFD50081D296 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DF224BDE27D1BFD70081D296 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DF224BE127D1BFD70081D296 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DF224BEA27D1EE7D0081D296 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
+		DF224BEC27D1EF070081D296 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		DF224BEE27D1EF780081D296 /* CustomCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarView.swift; sourceTree = "<group>"; };
+		DF224BF127D358F50081D296 /* CustomCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarViewModel.swift; sourceTree = "<group>"; };
+		DF224BF327D35D6C0081D296 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DF224BD427D1BFD50081D296 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DF224BCE27D1BFD50081D296 = {
+			isa = PBXGroup;
+			children = (
+				DF224BF027D358E60081D296 /* ViewModel */,
+				DF224BE927D1EE410081D296 /* View */,
+				DF224BE827D1EE390081D296 /* Model */,
+				DF224BD927D1BFD50081D296 /* ToDoMate */,
+				DF224BD827D1BFD50081D296 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DF224BD827D1BFD50081D296 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF224BD727D1BFD50081D296 /* ToDoMate.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF224BD927D1BFD50081D296 /* ToDoMate */ = {
+			isa = PBXGroup;
+			children = (
+				DF224BDA27D1BFD50081D296 /* ToDoMateApp.swift */,
+				DF224BDC27D1BFD50081D296 /* ContentView.swift */,
+				DF224BDE27D1BFD70081D296 /* Assets.xcassets */,
+				DF224BE027D1BFD70081D296 /* Preview Content */,
+			);
+			path = ToDoMate;
+			sourceTree = "<group>";
+		};
+		DF224BE027D1BFD70081D296 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DF224BE127D1BFD70081D296 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DF224BE827D1EE390081D296 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DF224BEA27D1EE7D0081D296 /* DateValue.swift */,
+				DF224BF327D35D6C0081D296 /* Task.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DF224BE927D1EE410081D296 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF224BEC27D1EF070081D296 /* CalendarView.swift */,
+				DF224BEE27D1EF780081D296 /* CustomCalendarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DF224BF027D358E60081D296 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DF224BF127D358F50081D296 /* CustomCalendarViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DF224BD627D1BFD50081D296 /* ToDoMate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF224BE527D1BFD70081D296 /* Build configuration list for PBXNativeTarget "ToDoMate" */;
+			buildPhases = (
+				DF224BD327D1BFD50081D296 /* Sources */,
+				DF224BD427D1BFD50081D296 /* Frameworks */,
+				DF224BD527D1BFD50081D296 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ToDoMate;
+			productName = ToDoMate;
+			productReference = DF224BD727D1BFD50081D296 /* ToDoMate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DF224BCF27D1BFD50081D296 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					DF224BD627D1BFD50081D296 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = DF224BD227D1BFD50081D296 /* Build configuration list for PBXProject "ToDoMate" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DF224BCE27D1BFD50081D296;
+			productRefGroup = DF224BD827D1BFD50081D296 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DF224BD627D1BFD50081D296 /* ToDoMate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DF224BD527D1BFD50081D296 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF224BE227D1BFD70081D296 /* Preview Assets.xcassets in Resources */,
+				DF224BDF27D1BFD70081D296 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DF224BD327D1BFD50081D296 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF224BEB27D1EE7D0081D296 /* DateValue.swift in Sources */,
+				DF224BDD27D1BFD50081D296 /* ContentView.swift in Sources */,
+				DF224BED27D1EF070081D296 /* CalendarView.swift in Sources */,
+				DF224BF427D35D6C0081D296 /* Task.swift in Sources */,
+				DF224BDB27D1BFD50081D296 /* ToDoMateApp.swift in Sources */,
+				DF224BEF27D1EF780081D296 /* CustomCalendarView.swift in Sources */,
+				DF224BF227D358F50081D296 /* CustomCalendarViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DF224BE327D1BFD70081D296 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DF224BE427D1BFD70081D296 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DF224BE627D1BFD70081D296 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ToDoMate/Preview Content\"";
+				DEVELOPMENT_TEAM = X52UAWWKMX;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.ToDoMate";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DF224BE727D1BFD70081D296 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ToDoMate/Preview Content\"";
+				DEVELOPMENT_TEAM = X52UAWWKMX;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.ToDoMate";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DF224BD227D1BFD50081D296 /* Build configuration list for PBXProject "ToDoMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF224BE327D1BFD70081D296 /* Debug */,
+				DF224BE427D1BFD70081D296 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF224BE527D1BFD70081D296 /* Build configuration list for PBXNativeTarget "ToDoMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF224BE627D1BFD70081D296 /* Debug */,
+				DF224BE727D1BFD70081D296 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DF224BCF27D1BFD50081D296 /* Project object */;
+}
