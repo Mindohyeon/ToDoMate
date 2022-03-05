@@ -36,7 +36,7 @@ var tasks : [TaskMetaDate] = [
         Task(title: "Talk to iJustine"),
         Task(title: "adsfasf"),
         Task(title: "aaaaa")
-    ], taskDate: getSampleDate(offset: 4)),
+    ], taskDate: getSampleDate(offset: 7)),
     
     TaskMetaDate(task: [
     
