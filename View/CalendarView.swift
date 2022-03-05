@@ -12,16 +12,22 @@ struct CalendarView: View {
     var body: some View {
         VStack {
             HStack {
+                Spacer()
                 Image(systemName: "trash")
                     .font(.title2)
                     .padding()
-                Spacer()
+                
                 Image(systemName: "list.bullet")
                     .font(.title2)
-                    .padding()
+                    .padding(.trailing, 5)
             }
+            .padding()
         
             CustomCalendarView()
+            
+            List {
+                
+            } .frame(maxWidth : .infinity, maxHeight: .infinity)
             
         }
     }
