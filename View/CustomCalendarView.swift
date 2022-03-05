@@ -26,11 +26,11 @@ struct CustomCalendarView: View {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     
-                    Text(extraDate()[0])
+                    Text(viewModel.extraDate()[0])
                         .font(.caption)
                         .fontWeight(.semibold)
                     
-                    Text(extraDate()[1])
+                    Text(viewModel.extraDate()[1])
                         .font(.title)
                         
                     
@@ -87,7 +87,7 @@ struct CustomCalendarView: View {
             
 
             LazyVGrid(columns: columns) {
-                ForEach(extractDate()) { value in
+                ForEach(viewModel.extractDate()) { value in
                     cardView(value: value)
                         .background(
                         
@@ -153,44 +153,6 @@ struct CustomCalendarView: View {
         .frame(height: 40, alignment: .top)
     }
     
-    
-    func extraDate() -> [String] {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY MMMM"
-        
-        let date = formatter.string(from: viewModel.currentDate)
-        
-        print(date)
-
-        return date.components(separatedBy: " ")
-    }
-    
-    
-    func extractDate() -> [DateValue] {
-        
-        let calendar = Calendar.current
-        
-        //Getting current Month Date
-        let currentMonth = viewModel.getCurrentWeek()
-        
-        var days = currentMonth.getAllDates().compactMap { date -> DateValue in
-            
-            let day = calendar.component(.day, from: date)
-            return DateValue(day: day, date: date)
-        }
-        
-        // Adding offset days to get exact week day
-        let firstWeekday = calendar.component(.weekday, from: days.first?.date ?? Date())
-    
-        
-        for _ in 0..<firstWeekday - 1{
-            days.insert(DateValue(day: -1, date: Date()), at: 0)
-            print(viewModel.currentDate)
-        }
-        
-        return days
-    }
-
 }
 
 struct CustomDatePicker_Previews: PreviewProvider {
