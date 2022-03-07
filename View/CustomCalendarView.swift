@@ -70,7 +70,6 @@ struct CustomCalendarView: View {
             //요일
         HStack(spacing:0) {
             ForEach(days, id: \.self) {day in
-                
                 Text(day)
                     .font(.callout)
                     .fontWeight(.semibold)
@@ -123,17 +122,34 @@ struct CustomCalendarView: View {
             
             if value.day != -1 {
                 
+                if let task = tasks.first(where: { task in
+
+                    return viewModel.isSameDay(date1: task.taskDate, date2: value.date)
                     
-                    Text("\(value.day)")
-                        .font(.title3.bold())
-                        .frame(maxWidth: .infinity)
-                    
-                    Spacer()
-//
-//                    Circle()
-//                        .frame(width: 8, height: 8)
+                              }) {
+
+                                  Text("\(value.day)")
+                                      .font(.title3.bold())
+                                      .foregroundColor(viewModel.isSameDay(date1: task.taskDate, date2: viewModel.currentDate) ? .white : .primary)
+                                      .frame(maxWidth: .infinity)
+
+                                  Spacer()
+
+                                  Circle()
+                                    .fill(viewModel.isSameDay(date1: task.taskDate, date2: viewModel.currentDate) ? .white : .pink)
+                                    .frame(width: 8, height: 8)
+
+                                
+                              }
+                              else {
+
+                                  Text("\(value.day)")
+                                      .font(.title3.bold())
+                                      .foregroundColor(viewModel.isSameDay(date1: value.date, date2: viewModel.currentDate) ? .white : .primary)
+                                      .frame(maxWidth: .infinity)
+                              }
+                          }
                         
-            }
         }
         .padding(.vertical, 8)
         .frame(height: 40, alignment: .top)
@@ -147,28 +163,23 @@ struct CustomDatePicker_Previews: PreviewProvider {
     }
 }
 
-
-
-
 extension Date {
     func getAllDates() -> [Date] {
         
         let calendar = Calendar.current
         
         //Getting start Date
-        let startDate = calendar.date(from: Calendar.current.dateComponents([.year, .month], from: self))!
+        let startDate = calendar.date(from: Calendar.current.dateComponents([.year, .month, .weekOfMonth], from: self))!
         
         
-        let range = calendar.range(of: .weekday, in: .weekOfMonth,
-            for: startDate)!
+        let range = calendar.range(of: .day, in: .weekOfMonth, for: startDate)!
         
         
         //Getting date
         return range.compactMap({ day -> Date in
             
-            return calendar.date(byAdding: .day, value: day - 1, to: startDate)!
+            return calendar.date(byAdding: .day, value: day - 1, to: self)!
         })
-        
         
     }
 }
