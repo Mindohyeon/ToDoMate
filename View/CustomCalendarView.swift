@@ -16,25 +16,21 @@ struct CustomCalendarView: View {
     
     var body: some View {
 
-        VStack(spacing: 30) {
+        VStack(spacing: 20) {
             
             // Days
             let days: [String] =
             ["일", "월", "화", "수", "목", "금", "토"]
             
-            HStack(spacing: 20) {
+            HStack(spacing : 7) {
                 
-                VStack(alignment: .leading, spacing: 10) {
-                    
                     Text(viewModel.extraDate()[0])
-                        .font(.caption)
+                        .font(.system(size: 15))
                         .fontWeight(.semibold)
                     
                     Text(viewModel.extraDate()[1])
-                        .font(.title)
-                        
-                    
-                }
+                        .font(.system(size: 15))
+                        .fontWeight(.semibold)
                 
                 Spacer(minLength: 0)
                 
