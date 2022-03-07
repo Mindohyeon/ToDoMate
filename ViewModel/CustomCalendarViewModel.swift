@@ -9,7 +9,7 @@ import Foundation
 
 class CustomCalendarViewModel : ObservableObject {
     
-    @Published var currnetWeek: Int = 0
+    @Published var currentWeek: Int = 0
     @Published var currentDate : Date = Date()
     
     
@@ -17,12 +17,15 @@ class CustomCalendarViewModel : ObservableObject {
         
         let calendar = Calendar.current
         
-        guard let currentMonth = calendar.date(byAdding: .weekOfMonth, value: self.currnetWeek, to: Date())
+        guard let currentWeek = calendar.date(byAdding: .weekOfMonth, value: self.currentWeek, to: Date())
+                
         else {
             return Date()
         }
-        print(currnetWeek)
-        return currentMonth
+        print("currentWeek = \(currentWeek)")
+        
+        return currentWeek
+        
         
     }
     
@@ -39,7 +42,7 @@ class CustomCalendarViewModel : ObservableObject {
         
         let date = formatter.string(from: currentDate)
         
-        print(date)
+        print(date.components(separatedBy: " ")[1])
 
         return date.components(separatedBy: " ")
     }
@@ -50,9 +53,9 @@ class CustomCalendarViewModel : ObservableObject {
         let calendar = Calendar.current
         
         //Getting current Month Date
-        let currentMonth = getCurrentWeek()
+        let currentWeek = getCurrentWeek()
         
-        var days = currentMonth.getAllDates().compactMap { date -> DateValue in
+        var days = currentWeek.getAllDates().compactMap { date -> DateValue in
             
             let day = calendar.component(.day, from: date)
             return DateValue(day: day, date: date)
@@ -64,7 +67,7 @@ class CustomCalendarViewModel : ObservableObject {
         
         for _ in 0..<firstWeekday - 1{
             days.insert(DateValue(day: -1, date: Date()), at: 0)
-            print(currentDate)
+            print("currentDate = \(currentDate)")
         }
         
         return days
@@ -72,3 +75,4 @@ class CustomCalendarViewModel : ObservableObject {
     
     
 }
+
