@@ -172,13 +172,13 @@ extension Date {
         let startDate = calendar.date(from: Calendar.current.dateComponents([.year, .month, .weekOfMonth], from: self))!
         
         
-        let range = calendar.range(of: .day, in: .weekOfMonth, for: startDate)!
+        let range = calendar.range(of: .weekday, in: .weekOfMonth, for: startDate)!
         
         
         //Getting date
         return range.compactMap({ day -> Date in
             
-            return calendar.date(byAdding: .day, value: day - 1, to: self)!
+            return calendar.date(byAdding: .day, value: day - 2, to: self)!
         })
         
     }
