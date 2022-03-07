@@ -41,7 +41,7 @@ struct CustomCalendarView: View {
                 Button {
                     
                     withAnimation {
-                        viewModel.currnetWeek -= 1
+                        viewModel.currentWeek -= 1
                     }
                     
                     
@@ -55,7 +55,7 @@ struct CustomCalendarView: View {
                 Button {
                     
                     withAnimation {
-                        viewModel.currnetWeek += 1
+                        viewModel.currentWeek += 1
                     }
                     
                 } label: {
@@ -109,7 +109,7 @@ struct CustomCalendarView: View {
         }
         // currentMonth 값이 변경되었을 때 실행
         // newValue 는 비교 검사에 실패한 새 값
-        .onChange(of: viewModel.currnetWeek) { newValue in
+        .onChange(of: viewModel.currentWeek) { newValue in
             
             //updating month
             viewModel.currentDate = viewModel.getCurrentWeek()
@@ -123,30 +123,16 @@ struct CustomCalendarView: View {
             
             if value.day != -1 {
                 
-                if let task = tasks.first(where: { task in
-                    
-                    return viewModel.isSameDay(date1: task.taskDate, date2: value.date)
-                }) {
                     
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundColor(viewModel.isSameDay(date1: task.taskDate, date2: viewModel.currentDate) ? .white : .primary)
                         .frame(maxWidth: .infinity)
                     
                     Spacer()
-                    
-                    Circle()
-                        .fill(viewModel.isSameDay(date1: task.taskDate, date2: viewModel.currentDate) ? .white : .pink)
-                        .frame(width: 8, height: 8)
+//
+//                    Circle()
+//                        .frame(width: 8, height: 8)
                         
-                }
-                else {
-                
-                    Text("\(value.day)")
-                        .font(.title3.bold())
-                        .foregroundColor(viewModel.isSameDay(date1: value.date, date2: viewModel.currentDate) ? .white : .primary)
-                        .frame(maxWidth: .infinity)
-                }
             }
         }
         .padding(.vertical, 8)
@@ -161,6 +147,9 @@ struct CustomDatePicker_Previews: PreviewProvider {
     }
 }
 
+
+
+
 extension Date {
     func getAllDates() -> [Date] {
         
@@ -169,14 +158,18 @@ extension Date {
         //Getting start Date
         let startDate = calendar.date(from: Calendar.current.dateComponents([.year, .month], from: self))!
         
-        //.weekOfMonth == 이번 달에 해당하는 이번 주
-        let range = calendar.range(of: .day, in: .weekOfMonth,
+        
+        let range = calendar.range(of: .weekday, in: .weekOfMonth,
             for: startDate)!
+        
         
         //Getting date
         return range.compactMap({ day -> Date in
             
             return calendar.date(byAdding: .day, value: day - 1, to: startDate)!
         })
+        
+        
     }
 }
+
