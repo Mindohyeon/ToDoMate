@@ -13,6 +13,8 @@ struct CustomCalendarView: View {
     @StateObject private var viewModel = CustomCalendarViewModel()
     
     @State private var clickAlert = false
+    @State private var menuItem = ["주" , "달" , "월"]
+    @State private var selectedButtonName = ""
     
     var body: some View {
 
@@ -31,6 +33,18 @@ struct CustomCalendarView: View {
                     Text(viewModel.extraDate()[1])
                         .font(.system(size: 15))
                         .fontWeight(.semibold)
+
+                                Menu {
+                                    // id : \.self == 각 요소를 고유하게 식별할 수 있도록 하기 위해서 필요함.
+                                    ForEach(menuItem, id: \.self) { chapter in
+                                        Text("\(chapter)")
+                                    }
+                                    
+                                } label: {
+                                    Image(systemName: "star")
+                                    
+                                }
+
                 
                 Spacer(minLength: 0)
                 
