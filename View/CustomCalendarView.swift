@@ -12,8 +12,11 @@ struct CustomCalendarView: View {
 
     @StateObject private var viewModel = CustomCalendarViewModel()
     
+    @State private var isanimation = false
     @State private var menuItem = ["주" , "달" , "월"]
     @State private var selectedButtonName = ""
+    
+    @Namespace private var animation
     
     var body: some View {
 
@@ -112,10 +115,13 @@ struct CustomCalendarView: View {
                         .onTapGesture {
                             
                             viewModel.currentDate = value.date
-
+                            
                             withAnimation {
-                                print("clicked!!")
+                                isanimation.toggle()
+                                print("Clicked")
                             }
+                            
+                            
                         }
                     }
             }
@@ -141,13 +147,15 @@ struct CustomCalendarView: View {
                     return viewModel.isSameDay(date1: task.taskDate, date2: value.date)
                     
                               }) {
-
+                                
                                   Text("\(value.day)")
                                       .font(.title3.bold())
                                       .foregroundColor(viewModel.isSameDay(date1: task.taskDate, date2: viewModel.currentDate) ? .white : .primary)
                                       .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                      
-
+                                      .matchedGeometryEffect(id: "title", in: animation)
+                                      .transition(AnyTransition.opacity.animation(.easeIn).combined(with: AnyTransition.slide))
+                                      .animation(.easeInOut)
+                    
                                   Spacer()
 
                                   Circle()
@@ -161,8 +169,10 @@ struct CustomCalendarView: View {
                                       .font(.title3.bold())
                                       .foregroundColor(viewModel.isSameDay(date1: value.date, date2: viewModel.currentDate) ? .white : .primary)
                                       .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                      .matchedGeometryEffect(id: "title", in: animation)
+                                      .animation(.easeInOut)
                                   
-                                      
+                                  
                               }
                           }
             
