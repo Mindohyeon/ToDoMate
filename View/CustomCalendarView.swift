@@ -107,6 +107,10 @@ struct CustomCalendarView: View {
                                 .padding(.horizontal, 3)
                                 .opacity(viewModel.isSameDay(date1: value.date, date2: viewModel.currentDate) ? 0.3 : 0)
                             
+                                .matchedGeometryEffect(id: "title", in: animation)
+                                .transition(AnyTransition.opacity.animation(.easeIn).combined(with: AnyTransition.slide))
+                                .animation(.easeIn)
+                            
                             
                                 
                         )
@@ -119,6 +123,7 @@ struct CustomCalendarView: View {
                             withAnimation {
                                 isanimation.toggle()
                                 print("Clicked")
+                                print("isanimation = \(isanimation)")
                             }
                             
                             
@@ -147,20 +152,18 @@ struct CustomCalendarView: View {
                     return viewModel.isSameDay(date1: task.taskDate, date2: value.date)
                     
                               }) {
-                                
+                    if isanimation {
                                   Text("\(value.day)")
                                       .font(.title3.bold())
                                       .foregroundColor(viewModel.isSameDay(date1: task.taskDate, date2: viewModel.currentDate) ? .white : .primary)
                                       .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                      .matchedGeometryEffect(id: "title", in: animation)
-                                      .transition(AnyTransition.opacity.animation(.easeIn).combined(with: AnyTransition.slide))
-                                      .animation(.easeInOut)
                     
                                   Spacer()
 
                                   Circle()
                                     .fill(viewModel.isSameDay(date1: task.taskDate, date2: viewModel.currentDate) ? .blue : .pink)
                                     .frame(width: 8, height: 8)
+                            }
 
                               }
                               else {
@@ -169,8 +172,6 @@ struct CustomCalendarView: View {
                                       .font(.title3.bold())
                                       .foregroundColor(viewModel.isSameDay(date1: value.date, date2: viewModel.currentDate) ? .white : .primary)
                                       .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                      .matchedGeometryEffect(id: "title", in: animation)
-                                      .animation(.easeInOut)
                                   
                                   
                               }
