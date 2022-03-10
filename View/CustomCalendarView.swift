@@ -12,7 +12,6 @@ struct CustomCalendarView: View {
 
     @StateObject private var viewModel = CustomCalendarViewModel()
     
-    @State private var clickAlert = false
     @State private var menuItem = ["주" , "달" , "월"]
     @State private var selectedButtonName = ""
     
@@ -104,6 +103,8 @@ struct CustomCalendarView: View {
                                 .fill(.gray)
                                 .padding(.horizontal, 3)
                                 .opacity(viewModel.isSameDay(date1: value.date, date2: viewModel.currentDate) ? 0.3 : 0)
+                            
+                            
                                 
                         )
                     
@@ -111,7 +112,10 @@ struct CustomCalendarView: View {
                         .onTapGesture {
                             
                             viewModel.currentDate = value.date
-                            clickAlert = true
+
+                            withAnimation {
+                                print("clicked!!")
+                            }
                         }
                     }
             }
@@ -141,24 +145,27 @@ struct CustomCalendarView: View {
                                   Text("\(value.day)")
                                       .font(.title3.bold())
                                       .foregroundColor(viewModel.isSameDay(date1: task.taskDate, date2: viewModel.currentDate) ? .white : .primary)
-                                      .frame(maxWidth: .infinity)
+                                      .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                      
 
                                   Spacer()
 
                                   Circle()
-                                    .fill(viewModel.isSameDay(date1: task.taskDate, date2: viewModel.currentDate) ? .white : .pink)
+                                    .fill(viewModel.isSameDay(date1: task.taskDate, date2: viewModel.currentDate) ? .blue : .pink)
                                     .frame(width: 8, height: 8)
 
-                                
                               }
                               else {
 
                                   Text("\(value.day)")
                                       .font(.title3.bold())
                                       .foregroundColor(viewModel.isSameDay(date1: value.date, date2: viewModel.currentDate) ? .white : .primary)
-                                      .frame(maxWidth: .infinity)
+                                      .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                  
+                                      
                               }
                           }
+            
                         
         }
         .padding(.vertical, 8)
@@ -179,17 +186,22 @@ extension Date {
         let calendar = Calendar.current
         
         //Getting start Date
-        let startDate = calendar.date(from: Calendar.current.dateComponents([.year, .month, .weekOfMonth], from: self))!
+        let startDate = calendar.date(from: Calendar.current.dateComponents([.year, .month], from: self))!
+        
+        let week = calendar.dateInterval(of: .weekOfMonth, for: self)
         
         
-        let range = calendar.range(of: .weekday, in: .weekOfMonth, for: startDate)!
         
+        guard let first = week?.start else {
+            return []
+        }
         
         //Getting date
-        return range.compactMap({ day -> Date in
-            
-            return calendar.date(byAdding: .day, value: day - 2, to: self)!
-        })
+        var res: [Date] = []
+        (0..<7).forEach { day in
+            res.append(calendar.date(byAdding: .day, value: day, to: first) ?? .init())
+        }
+        return res
         
     }
 }
