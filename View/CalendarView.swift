@@ -8,6 +8,16 @@
 import SwiftUI
 
 struct CalendarView: View {
+    
+    var listData : [TodoListItem] = []
+    
+    init() {
+        for index in 1...15 {
+            listData.append(TodoListItem(name: "hh"))
+        }
+    }
+    
+                            
     @State var currentDate : Date = Date()
     var body: some View {
         VStack {
@@ -28,9 +38,13 @@ struct CalendarView: View {
         
             CustomCalendarView()
             
-            List {
+            List(listData) { item in
+                
+                CustomListViewCell(item)
                 
             } .frame(maxWidth : .infinity, maxHeight: .infinity)
+                .listStyle(PlainListStyle())
+
             
         }
     }
