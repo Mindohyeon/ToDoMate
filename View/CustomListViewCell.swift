@@ -46,6 +46,6 @@ struct CustomListViewCell: View {
 
 struct CustomListViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        CustomListViewCell()
+        CustomListViewCell(TodoListItem(id: "", name: ""))
     }
 }
