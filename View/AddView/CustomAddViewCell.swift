@@ -10,6 +10,10 @@ import SwiftUI
 struct CustomAddViewCell: View {
     var body: some View {
         ZStack {
+            
+            RoundedRectangle(cornerRadius: 12)
+                .background(Color.gray)
+                .opacity(0.3)
             HStack {
                 Button {
                     
@@ -24,10 +28,7 @@ struct CustomAddViewCell: View {
             }
             .padding(7)
             
-        }
-        
-        .background(Color.gray)
-        .opacity(0.7)
+        } .frame(width: 80, height: 50)
         
     }
 }
