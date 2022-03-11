@@ -39,7 +39,7 @@ struct CalendarView: View {
             CustomCalendarView()
             
             List {
-                Section(header: Text("header")) {
+                Section(header: CustomAddViewCell()) {
                     ForEach(listData) { index in
                         CustomListViewCell(index)
                     } .frame(maxWidth: .infinity, maxHeight: .infinity)
