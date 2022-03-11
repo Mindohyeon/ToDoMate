@@ -38,21 +38,14 @@ struct CalendarView: View {
         
             CustomCalendarView()
             
-//            List(listData) { item in
-//
-//                    CustomListViewCell(item)
-//
-//            } .frame(maxWidth : .infinity, maxHeight: .infinity)
-//                .listStyle(PlainListStyle())
-
-            
             List {
                 Section(header: Text("header")) {
                     ForEach(listData) { index in
                         CustomListViewCell(index)
-                    } .frame(width: .infinity, height: .infinity)
+                    } .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
+            .listStyle(PlainListStyle())
             
         }
     }
