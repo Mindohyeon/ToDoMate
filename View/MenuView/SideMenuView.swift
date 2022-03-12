@@ -12,18 +12,22 @@ struct SideMenuView: View {
         VStack {
             Text("Profile!")
                 .font(.title)
-                
-                .onTapGesture {
-                print("Tabbed profile")
-            }
+            
+            Divider()
+                .frame(width: 200, height: 2)
+                .background(.white)
+                .padding(.horizontal, 16)
+                .blur(radius: 0.5)
+        
             Text("target") .onTapGesture {
                 print("Tabbed target")
             }
-            
             Spacer()
+        
         }
+        .padding(32)
         .background(.gray)
-        .opacity(0.5)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
