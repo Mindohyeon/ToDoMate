@@ -14,7 +14,7 @@ struct SideMenuView: View {
                 .font(.title)
             
             Divider()
-                .frame(width: 200, height: 2)
+                .frame(width: 100, height: 2)
                 .background(.white)
                 .padding(.horizontal, 16)
                 .blur(radius: 0.5)
