@@ -25,10 +25,15 @@ struct CustomListViewCell: View {
             }) {
                 if isClickedCheckButton {
                     Image("str2")
-                        .foregroundColor(.black)
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                    
                 }
                 else {
                     Image("str")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+
                 }
             }
             
@@ -40,11 +45,12 @@ struct CustomListViewCell: View {
                 
             } label: {
                 Image(systemName: "ellipsis")
-                    .font(.title)
+                    .font(.title2)
                     .foregroundColor(.gray)
                 
             }
         }
+        .buttonStyle(.plain)
         .padding()
     }
 }
