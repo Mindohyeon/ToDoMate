@@ -42,6 +42,7 @@ struct CalendarView: View {
                         
                         SideMenuView()
                             .offset(x: ClickMenuIcon ? 0 :UIScreen.main.bounds.width)
+                            .animation(.easeIn(duration: 0.25), value: ClickMenuIcon)
                         
                     }
                     
