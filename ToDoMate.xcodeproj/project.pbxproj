@@ -19,8 +19,8 @@
 		DF224BF727DAC9150081D296 /* TodoListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF224BF627DAC9150081D296 /* TodoListItem.swift */; };
 		DF224BF927DACAB50081D296 /* CustomListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF224BF827DACAB50081D296 /* CustomListViewCell.swift */; };
 		DF224BFB27DAD49E0081D296 /* CustomAddViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF224BFA27DAD49E0081D296 /* CustomAddViewCell.swift */; };
-		DFE4E48D27DAE98200294ADB /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE4E48C27DAE98200294ADB /* MenuView.swift */; };
-		DFE4E48F27DAEB4D00294ADB /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE4E48E27DAEB4D00294ADB /* MenuViewModel.swift */; };
+		DFE4E48D27DAE98200294ADB /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE4E48C27DAE98200294ADB /* SideMenuView.swift */; };
+		DFE4E48F27DAEB4D00294ADB /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE4E48E27DAEB4D00294ADB /* SideMenuViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +37,8 @@
 		DF224BF627DAC9150081D296 /* TodoListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListItem.swift; sourceTree = "<group>"; };
 		DF224BF827DACAB50081D296 /* CustomListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListViewCell.swift; sourceTree = "<group>"; };
 		DF224BFA27DAD49E0081D296 /* CustomAddViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAddViewCell.swift; sourceTree = "<group>"; };
-		DFE4E48C27DAE98200294ADB /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		DFE4E48E27DAEB4D00294ADB /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		DFE4E48C27DAE98200294ADB /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		DFE4E48E27DAEB4D00294ADB /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				DF224BF127D358F50081D296 /* CustomCalendarViewModel.swift */,
-				DFE4E48E27DAEB4D00294ADB /* MenuViewModel.swift */,
+				DFE4E48E27DAEB4D00294ADB /* SideMenuViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -148,7 +148,7 @@
 		DFE4E48B27DAE97400294ADB /* MenuView */ = {
 			isa = PBXGroup;
 			children = (
-				DFE4E48C27DAE98200294ADB /* MenuView.swift */,
+				DFE4E48C27DAE98200294ADB /* SideMenuView.swift */,
 			);
 			path = MenuView;
 			sourceTree = "<group>";
@@ -226,12 +226,12 @@
 				DF224BEB27D1EE7D0081D296 /* DateValue.swift in Sources */,
 				DF224BDD27D1BFD50081D296 /* ContentView.swift in Sources */,
 				DF224BF927DACAB50081D296 /* CustomListViewCell.swift in Sources */,
-				DFE4E48F27DAEB4D00294ADB /* MenuViewModel.swift in Sources */,
+				DFE4E48F27DAEB4D00294ADB /* SideMenuViewModel.swift in Sources */,
 				DF224BED27D1EF070081D296 /* CalendarView.swift in Sources */,
 				DF224BF427D35D6C0081D296 /* Task.swift in Sources */,
 				DF224BDB27D1BFD50081D296 /* ToDoMateApp.swift in Sources */,
 				DF224BEF27D1EF780081D296 /* CustomCalendarView.swift in Sources */,
-				DFE4E48D27DAE98200294ADB /* MenuView.swift in Sources */,
+				DFE4E48D27DAE98200294ADB /* SideMenuView.swift in Sources */,
 				DF224BFB27DAD49E0081D296 /* CustomAddViewCell.swift in Sources */,
 				DF224BF727DAC9150081D296 /* TodoListItem.swift in Sources */,
 				DF224BF227D358F50081D296 /* CustomCalendarViewModel.swift in Sources */,
