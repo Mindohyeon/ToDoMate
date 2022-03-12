@@ -37,29 +37,30 @@ struct CalendarView: View {
                 }
                 
                 GeometryReader { _ in
-                    VStack {
-                        HStack {
-                            Spacer()
-                            
-                            SideMenuView()
-                                .offset(x: ClickMenuIcon ? 0 :UIScreen.main.bounds.width)
-                        }.padding()
-                            .toolbar {
-                                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                                    Image(systemName: "trash")
-                                        .padding()
-                                    
-                                    Button {
-                                        ClickMenuIcon.toggle()
-                                    } label: {
-                                        Image(systemName: "list.bullet")
-                                            .padding(.trailing, 5)
-                                            .foregroundColor(.black)
-                                            .buttonStyle(.plain)
-                                    }
-                                }
-                            }
+                    HStack {
+                        Spacer()
+                        
+                        SideMenuView()
+                            .offset(x: ClickMenuIcon ? 0 :UIScreen.main.bounds.width)
+                        
                     }
+                    
+                    .toolbar {
+                        ToolbarItemGroup(placement: .navigationBarTrailing) {
+                            Image(systemName: "trash")
+                                .padding()
+                            
+                            Button {
+                                ClickMenuIcon.toggle()
+                            } label: {
+                                Image(systemName: "list.bullet")
+                                    .padding(.trailing, 5)
+                                    .foregroundColor(.black)
+                                    .buttonStyle(.plain)
+                            }
+                        }
+                    }
+                    .background(.black.opacity(ClickMenuIcon ? 0.5 : 0))
                 }
             }
         }
