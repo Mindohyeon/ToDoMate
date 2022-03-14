@@ -1,20 +1,20 @@
 //
 //  ContentView.swift
-//  ToDoMate
+//  test
 //
-//  Created by 민도현 on 2022/03/04.
+//  Created by 최형우 on 2022/01/13.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("")
+        Text("Hello, World!")
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CalendarView()
     }
 }

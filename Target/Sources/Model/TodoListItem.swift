@@ -12,5 +12,4 @@ struct TodoListItem : Identifiable {
     var id = UUID().uuidString
     var name : String
     
-    
 }

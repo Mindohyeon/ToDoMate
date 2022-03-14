@@ -11,12 +11,9 @@ struct CalendarView: View {
     
     var listData : [TodoListItem] = []
     @State var ClickMenuIcon = false
+    @State var isAddState = false
+
     
-    init() {
-        for index in 1...15 {
-            listData.append(TodoListItem(name: "hh"))
-        }
-    }
     
     @State var currentDate : Date = Date()
     var body: some View {
@@ -32,16 +29,27 @@ struct CalendarView: View {
             }
         
         NavigationView {
+            
             ZStack(alignment: .trailing) {
                 VStack {
                     CustomCalendarView()
+
                     
                     List {
-                        Section(header: CustomAddViewCell()) {
-                            ForEach(listData) { index in
+                        Section(header:
+                                    CustomAddViewCell()
+                                    .onTapGesture {
+                            isAddState.toggle()
+                        }
+                        ) {
+                            if isAddState {
+                                CustomListFieldViewCell(.init(name: "a"))
+                            }
+                            ForEach(listData, id: \.id) { index in
                                 CustomListViewCell(index)
                             } .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
+                        
                     }
                     .listStyle(PlainListStyle())
                 }
@@ -72,7 +80,7 @@ struct CalendarView: View {
                             }
                         }
                     }
-                    .background(.black.opacity(ClickMenuIcon ? 0.5 : 0))
+                    .background(.black.opacity(ClickMenuIcon ? 0.3 : 0))
                 }
             }
             .gesture(drag)

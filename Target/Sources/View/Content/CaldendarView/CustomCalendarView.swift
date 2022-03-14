@@ -13,7 +13,7 @@ struct CustomCalendarView: View {
     @StateObject private var viewModel = CustomCalendarViewModel()
     
     @State private var isanimation = false
-    @State private var menuItem = ["주" , "달" , "월"]
+    private var menuItem = ["주" , "달" , "년"]
     @State private var selectedButtonName = ""
     
     @Namespace private var animation
@@ -107,7 +107,7 @@ struct CustomCalendarView: View {
                                         .fill(.gray)
                                         .padding(.horizontal, 3)
                                         .opacity(0.3)
-                                        .matchedGeometryEffect(id: "CURRENTDATE", in: animation)
+                                        .matchedGeometryEffect(id: "title", in: animation)
                                 }
                             }
                             

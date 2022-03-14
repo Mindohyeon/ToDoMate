@@ -22,7 +22,7 @@ struct TaskMetaDate : Identifiable {
 
 //Sample Date for Testing
 func getSampleDate(offset : Int) -> Date {
-    let calendar = Calendar.current
+    let calendar = Calendar.current 
     
     let date = calendar.date(byAdding: .day, value: offset, to: Date())
     
@@ -41,6 +41,6 @@ var tasks : [TaskMetaDate] = [
     TaskMetaDate(task: [
     
         Task(title: "asdfasfd")
-    ], taskDate: getSampleDate(offset: -10))
+    ], taskDate: getSampleDate(offset: 1))
 ]
 
