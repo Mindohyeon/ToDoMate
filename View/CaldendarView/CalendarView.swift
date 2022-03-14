@@ -20,10 +20,20 @@ struct CalendarView: View {
     
     @State var currentDate : Date = Date()
     var body: some View {
+        
+        let drag = DragGesture()
+            .onEnded {
+                //sideMenu 를 Swipe 로 Close 하기
+                if $0.translation.width > 100 {
+                    withAnimation {
+                        self.ClickMenuIcon = false
+                    }
+                }
+            }
+        
         NavigationView {
-            ZStack {
+            ZStack(alignment: .trailing) {
                 VStack {
-                    
                     CustomCalendarView()
                     
                     List {
@@ -51,8 +61,9 @@ struct CalendarView: View {
                             Image(systemName: "trash")
                                 .padding()
                             
+                            
                             Button {
-                                ClickMenuIcon.toggle()
+                                self.ClickMenuIcon.toggle()
                             } label: {
                                 Image(systemName: "list.bullet")
                                     .padding(.trailing, 5)
@@ -64,6 +75,7 @@ struct CalendarView: View {
                     .background(.black.opacity(ClickMenuIcon ? 0.5 : 0))
                 }
             }
+            .gesture(drag)
         }
     }
 }
