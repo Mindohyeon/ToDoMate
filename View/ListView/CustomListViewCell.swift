@@ -26,13 +26,14 @@ struct CustomListViewCell: View {
                 if isClickedCheckButton {
                     Image("str2")
                         .resizable()
-                        .frame(width: 30, height: 30)
+                        .frame(width: 40, height: 40)
                     
                 }
                 else {
                     Image("str")
                         .resizable()
-                        .frame(width: 30, height: 30)
+                        .frame(width: 40, height: 40)
+                        .padding(3)
 
                 }
             }
@@ -51,7 +52,7 @@ struct CustomListViewCell: View {
             }
         }
         .buttonStyle(.plain)
-        .padding()
+        .padding([.leading, .trailing], 3)
     }
 }
 
