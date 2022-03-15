@@ -12,8 +12,14 @@ struct CalendarView: View {
     var listData : [TodoListItem] = []
     @State var ClickMenuIcon = false
     @State var isAddState = false
-
     
+    // list 개수 결정
+    init() {
+        for _ in 0...14 {
+            listData.append(.init(name: "item"))
+            
+        }
+    }
     
     @State var currentDate : Date = Date()
     var body: some View {
@@ -34,24 +40,28 @@ struct CalendarView: View {
                 VStack {
                     CustomCalendarView()
 
-                    
                     List {
-                        Section(header:
-                                    CustomAddViewCell()
+
+                        Section(header: CustomAddViewCell()
                                     .onTapGesture {
                             isAddState.toggle()
-                        }
-                        ) {
+                            print("Tapped")
+                        }) {
+                            
                             if isAddState {
-                                CustomListFieldViewCell(.init(name: "a"))
+                                CustomListFieldViewCell()
                             }
+                            
                             ForEach(listData, id: \.id) { index in
                                 CustomListViewCell(index)
                             } .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            
                         }
                         
                     }
                     .listStyle(PlainListStyle())
+                    
+                    
                 }
                 
                 GeometryReader { _ in
