@@ -6,7 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
-class MenuViewModel : Identifiable {
+class MenuViewModel : ObservableObject {
+    
+    @Published var gettingContents : String = ""
+    
     
 }
