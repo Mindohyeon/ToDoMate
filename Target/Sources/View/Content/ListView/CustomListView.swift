@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-struct CustomListViewCell: View {
+struct CustomListView: View {
     
     var item : TodoListItem?
     // 버튼 클릭시 상태값 저장
     @State var isClickedCheckButton = false
+    
+    @State var gettingContents : String = ""
+    
     
     init(_ item : TodoListItem) {
         self.item = item
@@ -62,6 +65,6 @@ struct CustomListViewCell: View {
 
 struct CustomListViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        CustomListViewCell(TodoListItem(id: "", name: ""))
+        CustomListView(TodoListItem(name: ""))
     }
 }
