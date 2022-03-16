@@ -10,8 +10,13 @@ import SwiftUI
 struct CalendarView: View {
     
     var listData : [TodoListItem] = []
-    @State var ClickMenuIcon = false
+    @State var clickMenuIcon = false
     @State var isAddState = false
+    
+    @State var addView = false
+    @State var textFieldContents : String = ""
+    
+    @StateObject var menuViewModel = MenuViewModel()
     
     // list 개수 결정
     init() {
@@ -29,7 +34,7 @@ struct CalendarView: View {
                 //sideMenu 를 Swipe 로 Close 하기
                 if $0.translation.width > 100 {
                     withAnimation {
-                        self.ClickMenuIcon = false
+                        self.clickMenuIcon = false
                     }
                 }
             }
@@ -42,18 +47,14 @@ struct CalendarView: View {
 
                     List {
 
-                        Section(header: CustomAddViewCell()
-                                    .onTapGesture {
-                            isAddState.toggle()
-                            print("Tapped")
-                        }) {
+                        Section(header: CustomAddViewCell(addView: $isAddState)) {
                             
                             if isAddState {
-                                CustomListFieldViewCell()
+                                CustomListFieldView(textFieldContents: $textFieldContents)
                             }
                             
                             ForEach(listData, id: \.id) { index in
-                                CustomListViewCell(index)
+                                CustomListView(index)
                             } .frame(maxWidth: .infinity, maxHeight: .infinity)
                             
                         }
@@ -69,8 +70,8 @@ struct CalendarView: View {
                         Spacer()
                         
                         SideMenuView()
-                            .offset(x: ClickMenuIcon ? 0 :UIScreen.main.bounds.width)
-                            .animation(.easeIn(duration: 0.25), value: ClickMenuIcon)
+                            .offset(x: clickMenuIcon ? 0 :UIScreen.main.bounds.width)
+                            .animation(.easeIn(duration: 0.25), value: clickMenuIcon)
                         
                     }
                     
@@ -81,7 +82,7 @@ struct CalendarView: View {
                             
                             
                             Button {
-                                self.ClickMenuIcon.toggle()
+                                self.clickMenuIcon.toggle()
                             } label: {
                                 Image(systemName: "list.bullet")
                                     .padding(.trailing, 5)
@@ -90,7 +91,7 @@ struct CalendarView: View {
                             }
                         }
                     }
-                    .background(.black.opacity(ClickMenuIcon ? 0.3 : 0))
+                    .background(.black.opacity(clickMenuIcon ? 0.3 : 0))
                 }
             }
             .gesture(drag)

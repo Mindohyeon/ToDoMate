@@ -7,19 +7,14 @@
 
 import SwiftUI
 
-struct CustomListFieldViewCell: View {
+struct CustomListFieldView: View {
     
     var item : TodoListItem?
     // 버튼 클릭시 상태값 저장
     @State var isClickedCheckButton = false
-    @State var diaryContents : String = ""
-    
-    init(_ item : TodoListItem) {
-        self.item = item
-        
-        
-    }
-    
+
+    @Binding var textFieldContents : String
+
     
     var body: some View {
         VStack {
@@ -42,7 +37,7 @@ struct CustomListFieldViewCell: View {
                     }
                 }
                 
-                TextField("입력해주세요", text: $diaryContents)
+                TextField("입력해주세요", text: $textFieldContents)
                 
                 Spacer()
                 
@@ -68,11 +63,8 @@ struct CustomListFieldViewCell: View {
 }
 
 
-
-
-
 struct CustomListFieldViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        CustomListFieldViewCell(TodoListItem(name: ""))
+        CalendarView()
     }
 }
