@@ -10,7 +10,7 @@ import SwiftUI
 
 class MenuViewModel : ObservableObject {
     
-    @Published var gettingContents : String = ""
+    @Published var inputText : String = ""
     
     
 }
