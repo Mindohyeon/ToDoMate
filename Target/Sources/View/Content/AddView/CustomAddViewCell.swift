@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CustomAddViewCell: View {
     
+    @Binding var addView : Bool
+    
     var body: some View {
         ZStack {
             
@@ -17,7 +19,7 @@ struct CustomAddViewCell: View {
                 .opacity(0.3)
             HStack {
                 Button {
-                    
+                    addView.toggle()
                 } label: {
                     
                     Text("버튼")
@@ -35,6 +37,6 @@ struct CustomAddViewCell: View {
 
 struct CustomAddViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        CustomAddViewCell()
+        CalendarView()
     }
 }
