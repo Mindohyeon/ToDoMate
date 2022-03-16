@@ -13,8 +13,7 @@ struct CustomListView: View {
     // 버튼 클릭시 상태값 저장
     @State var isClickedCheckButton = false
     
-    @State var gettingContents : String = ""
-    
+    @ObservedObject var menuViewModel = MenuViewModel()
     
     init(_ item : TodoListItem) {
         self.item = item
@@ -22,6 +21,7 @@ struct CustomListView: View {
     
     
     var body: some View {
+        
         HStack {
             Button(action:  {
                 self.isClickedCheckButton.toggle()
@@ -41,7 +41,8 @@ struct CustomListView: View {
                 }
             }
             
-            Text("item : \(item!.name)")
+//            Text(item?.name ?? "")
+            Text(menuViewModel.inputText)
             
             Spacer()
             
