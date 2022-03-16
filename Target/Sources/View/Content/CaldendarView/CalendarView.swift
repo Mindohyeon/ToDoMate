@@ -16,13 +16,12 @@ struct CalendarView: View {
     @State var addView = false
     @State var textFieldContents : String = ""
     
-    @StateObject var menuViewModel = MenuViewModel()
     
     // list 개수 결정
     init() {
-        for _ in 0...14 {
-            listData.append(.init(name: "item"))
-            
+        for _ in 0...listData.count {
+            listData.append(.init(name: menuViewModel.inputText))
+
         }
     }
     
@@ -51,6 +50,10 @@ struct CalendarView: View {
                             
                             if isAddState {
                                 CustomListFieldView(textFieldContents: $textFieldContents)
+                                    .onSubmit {
+                                        print(textFieldContents)
+                                        
+                                    }
                             }
                             
                             ForEach(listData, id: \.id) { index in
