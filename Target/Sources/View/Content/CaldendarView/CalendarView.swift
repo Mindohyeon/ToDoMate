@@ -14,16 +14,19 @@ struct CalendarView: View {
     @State var isAddState = false
     
     @State var addView = false
-    @State var textFieldContents : String = ""
+    
+    @ObservedObject var menuViewModel = MenuViewModel()
     
     
     // list 개수 결정
-    init() {
-        for _ in 0...listData.count {
-            listData.append(.init(name: menuViewModel.inputText))
-
-        }
-    }
+//    init() {
+//        for _ in 0...listData.count {
+//            listData.append(.init(name: menuViewModel.inputText))
+//            listData.append(.init(name: textFieldContents))
+//            listData.append(name: textFieldContents)
+//
+//        }
+//    }
     
     @State var currentDate : Date = Date()
     var body: some View {
@@ -49,15 +52,20 @@ struct CalendarView: View {
                         Section(header: CustomAddViewCell(addView: $isAddState)) {
                             
                             if isAddState {
-                                CustomListFieldView(textFieldContents: $textFieldContents)
+                                CustomListFieldView(textFieldContents: $menuViewModel.inputText)
                                     .onSubmit {
-                                        print(textFieldContents)
+                                        print(menuViewModel.inputText)
+                                            
+                                        print("inputText = \(menuViewModel.inputText)")
+                                        
+                                        menuViewModel.item.append(TodoListItem.init(name: menuViewModel.inputText))
                                         
                                     }
                             }
                             
-                            ForEach(listData, id: \.id) { index in
-                                CustomListView(index)
+                            
+                            ForEach(menuViewModel.item, id: \.id) { index in
+                                CustomListView(textFieldContents: index.name)
                             } .frame(maxWidth: .infinity, maxHeight: .infinity)
                             
                         }
