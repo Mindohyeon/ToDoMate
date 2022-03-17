@@ -55,10 +55,11 @@ struct CalendarView: View {
                                 CustomListFieldView(textFieldContents: $menuViewModel.inputText)
                                     .onSubmit {
                                         print(menuViewModel.inputText)
-                                            
                                         print("inputText = \(menuViewModel.inputText)")
                                         
                                         menuViewModel.item.append(TodoListItem.init(name: menuViewModel.inputText))
+                                        
+                                        menuViewModel.inputText = ""
                                         
                                     }
                             }
