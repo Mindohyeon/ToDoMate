@@ -14,14 +14,4 @@ class MenuViewModel : ObservableObject {
     
     @Published var item : [TodoListItem] = []
     
-    func setList(item: String) {
-        for i in 0...2 {
-//        self.item[i].name = item
-//            print(self.item[i])
-            print("MenuViewModel = \(inputText)")
-        }
-    }
-
-    
-    
 }
