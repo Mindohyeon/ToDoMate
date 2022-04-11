@@ -9,26 +9,12 @@ import SwiftUI
 
 struct CalendarView: View {
     
-    var listData : [TodoListItem] = []
     @State var clickMenuIcon = false
-    @State var isAddState = false
-    
-    @State var addView = false
+    @State private var isAddState = false
+    @State var currentDate : Date = Date()
     
     @ObservedObject var menuViewModel = MenuViewModel()
     
-    
-    // list 개수 결정
-//    init() {
-//        for _ in 0...listData.count {
-//            listData.append(.init(name: menuViewModel.inputText))
-//            listData.append(.init(name: textFieldContents))
-//            listData.append(name: textFieldContents)
-//
-//        }
-//    }
-    
-    @State var currentDate : Date = Date()
     var body: some View {
         
         let drag = DragGesture()
@@ -46,9 +32,11 @@ struct CalendarView: View {
             ZStack(alignment: .trailing) {
                 VStack {
                     CustomCalendarView()
-
+                        .padding()
+                    
+                    // MARK: - list
                     List {
-
+                        
                         Section(header: CustomAddViewCell(addView: $isAddState)) {
                             
                             if isAddState {
