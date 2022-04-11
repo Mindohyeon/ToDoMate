@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CalendarView: View {
-    
+
     @State var clickMenuIcon = false
     @State private var isAddState = false
     @State var currentDate : Date = Date()
@@ -33,19 +33,20 @@ struct CalendarView: View {
                 VStack {
                     CustomCalendarView()
                         .padding()
-                    
+
                     // MARK: - list
                     List {
-                        
+
                         Section(header: CustomAddViewCell(addView: $isAddState)) {
                             
                             if isAddState {
                                 CustomListFieldView(textFieldContents: $menuViewModel.inputText)
+                                //enter 쳤을 때
                                     .onSubmit {
                                         print(menuViewModel.inputText)
                                         print("inputText = \(menuViewModel.inputText)")
                                         
-                                        menuViewModel.item.append(TodoListItem.init(name: menuViewModel.inputText))
+                                        menuViewModel.item.append(TodoListItem.init(text: menuViewModel.inputText))
                                         
                                         menuViewModel.inputText = ""
                                         
@@ -54,8 +55,12 @@ struct CalendarView: View {
                             
                             
                             ForEach(menuViewModel.item, id: \.id) { index in
-                                CustomListView(textFieldContents: index.name)
-                            } .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                CustomListView(textFieldContents: index.text)
+                            }
+                            //스와이프로 Delete 하기
+                            .onDelete {
+                                menuViewModel.item.remove(atOffsets: $0)
+                            }.frame(maxWidth: .infinity, maxHeight: .infinity)
                             
                         }
                         
@@ -71,7 +76,7 @@ struct CalendarView: View {
                         
                         SideMenuView()
                             .offset(x: clickMenuIcon ? 0 :UIScreen.main.bounds.width)
-                            .animation(.easeIn(duration: 0.25), value: clickMenuIcon)
+                            .animation(.easeIn(duration: 0.20), value: clickMenuIcon)
                         
                     }
                     
