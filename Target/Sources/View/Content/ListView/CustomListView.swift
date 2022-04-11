@@ -13,11 +13,7 @@ struct CustomListView: View {
     // 버튼 클릭시 상태값 저장
     @State var isClickedCheckButton = false
     
-    @ObservedObject var menuViewModel = MenuViewModel()
-    
-    init(_ item : TodoListItem) {
-        self.item = item
-    }
+    var textFieldContents : String
     
     
     var body: some View {
@@ -26,23 +22,14 @@ struct CustomListView: View {
             Button(action:  {
                 self.isClickedCheckButton.toggle()
             }) {
-                if isClickedCheckButton {
-                    Image("str2")
+                Image(isClickedCheckButton ? "str2" : "str")
                         .resizable()
                         .frame(width: 40, height: 40)
-                    
-                }
-                else {
-                    Image("str")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .padding(3)
 
                 }
-            }
             
 //            Text(item?.name ?? "")
-            Text(menuViewModel.inputText)
+            Text(textFieldContents)
             
             Spacer()
             
@@ -53,10 +40,10 @@ struct CustomListView: View {
                     .font(.title2)
                     .foregroundColor(.gray)
                 
-            }
         }
         .buttonStyle(.plain)
         .padding([.leading, .trailing], 3)
+        }
     }
 }
 
@@ -66,6 +53,6 @@ struct CustomListView: View {
 
 struct CustomListViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        CustomListView(TodoListItem(name: ""))
+        CustomListView(textFieldContents: "")
     }
 }
