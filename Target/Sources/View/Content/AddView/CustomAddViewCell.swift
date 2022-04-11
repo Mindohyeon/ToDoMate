@@ -22,7 +22,7 @@ struct CustomAddViewCell: View {
                     addView.toggle()
                 } label: {
                     
-                    Text("버튼")
+                    Text("Add")
                         .foregroundColor(.black)
                     
                     Image(systemName: "plus.circle.fill")

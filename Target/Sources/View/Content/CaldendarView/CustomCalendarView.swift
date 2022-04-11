@@ -200,8 +200,6 @@ extension Date {
         
         let week = calendar.dateInterval(of: .weekOfMonth, for: self)
         
-        
-        
         guard let first = week?.start else {
             return []
         }

@@ -44,6 +44,7 @@ class CustomCalendarViewModel : ObservableObject {
         
         print(date.components(separatedBy: " ")[1])
 
+        
         return date.components(separatedBy: " ")
     }
     
