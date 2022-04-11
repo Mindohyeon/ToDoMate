@@ -9,32 +9,26 @@ import SwiftUI
 
 struct CustomListFieldView: View {
     
-    var item : TodoListItem?
+    //    @State var item : TodoListItem
+    
     // 버튼 클릭시 상태값 저장
     @State var isClickedCheckButton = false
-
+    
     @Binding var textFieldContents : String
-
     
     var body: some View {
+        
+        
         VStack {
             HStack {
                 Button(action:  {
                     self.isClickedCheckButton.toggle()
+                    print(textFieldContents)
                 }) {
-                    if isClickedCheckButton {
-                        Image("str2")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                        
-                    }
-                    else {
-                        Image(ToDoMateAsset.Assets.str.name)
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .padding(3)
-                        
-                    }
+                    
+                    Image(isClickedCheckButton ? "str2" : "str")
+                        .resizable()
+                        .frame(width: 40, height: 40)
                 }
                 
                 TextField("입력해주세요", text: $textFieldContents)
