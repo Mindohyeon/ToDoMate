@@ -26,7 +26,9 @@ struct CustomListFieldView: View {
                     print(textFieldContents)
                 }) {
                     
-                    Image(isClickedCheckButton ? "str2" : "str")
+                    Image(uiImage: isClickedCheckButton
+                          ? ToDoMateAsset.Assets.str2.image
+                          : ToDoMateAsset.Assets.str.image)
                         .resizable()
                         .frame(width: 40, height: 40)
                 }
