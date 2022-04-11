@@ -35,7 +35,7 @@ struct CustomListFieldView: View {
                 
                 TextField("입력해주세요", text: $textFieldContents)
                 
-                Spacer()
+                     Spacer()
                 
                 Button {
                     

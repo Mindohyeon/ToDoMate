@@ -77,7 +77,7 @@ struct CalendarView: View {
                         SideMenuView()
                             .offset(x: clickMenuIcon ? 0 :UIScreen.main.bounds.width)
                             .animation(.easeIn(duration: 0.20), value: clickMenuIcon)
-                        
+
                     }
                     
                     .toolbar {
@@ -92,7 +92,7 @@ struct CalendarView: View {
                                 Image(systemName: "list.bullet")
                                     .padding(.trailing, 5)
                                     .foregroundColor(.black)
-                                    .buttonStyle(.plain)
+//                                    .buttonStyle(.plain)
                             }
                         }
                     }
