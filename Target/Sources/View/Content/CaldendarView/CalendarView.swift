@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import RealmSwift
+
 
 struct CalendarView: View {
 
@@ -13,18 +15,21 @@ struct CalendarView: View {
     @State private var isAddState = false
     @State var currentDate : Date = Date()
     
-    @ObservedObject var menuViewModel = MenuViewModel()
+    let realm = try! Realm()
+    
+    @StateObject var menuViewModel = MenuViewModel()
     
     var body: some View {
         
         let drag = DragGesture()
             .onEnded {
                 //sideMenu 를 Swipe 로 Close 하기
-                if $0.translation.width > 100 {
+                if $0.translation.width > 0 {
                     withAnimation {
                         self.clickMenuIcon = false
                     }
                 }
+                
             }
         
         NavigationView {
@@ -48,11 +53,17 @@ struct CalendarView: View {
                                         
                                         menuViewModel.item.append(TodoListItem.init(text: menuViewModel.inputText))
                                         
+//                                            try! realm.write {
+//                                                realm.add(menuViewModel)
+//                                            }
+                                        
                                         menuViewModel.inputText = ""
                                         
+                                        print(Realm.Configuration.defaultConfiguration.fileURL!)
+
                                     }
-                            }
-                            
+                                
+                        }
                             
                             ForEach(menuViewModel.item, id: \.id) { index in
                                 CustomListView(textFieldContents: index.text)
@@ -66,7 +77,6 @@ struct CalendarView: View {
                         
                     }
                     .listStyle(PlainListStyle())
-                    
                     
                 }
                 
