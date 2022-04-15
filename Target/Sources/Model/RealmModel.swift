@@ -6,7 +6,16 @@
 //  Copyright © 2022 mindohyeon. All rights reserved.
 //
 
-import Foundation
-
+//import Foundation
+//import RealmSwift
 //
-
+//class RealmModel : Object, Identifiable{
+//
+//    @Persisted var text : String?
+//
+////    init(text : String) {
+////        self.text = text
+////    }
+//
+//}
+//

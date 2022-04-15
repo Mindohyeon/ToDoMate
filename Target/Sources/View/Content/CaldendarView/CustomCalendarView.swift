@@ -12,9 +12,8 @@ struct CustomCalendarView: View {
 
     @StateObject private var viewModel = CustomCalendarViewModel()
     
-    @State private var isanimation = false
+    @State private var isAnimation = false
     private var menuItem = ["주" , "달" , "년"]
-    @State private var selectedButtonName = ""
     
     @Namespace private var animation
     
@@ -122,7 +121,7 @@ struct CustomCalendarView: View {
                                 viewModel.currentDate = value.date
                                 print("aaa\(value.date)")
                                 print("Clicked")
-                                print("isanimation = \(isanimation)")
+                                print("isanimation = \(isAnimation)")
                             }
                             
                             

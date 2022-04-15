@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+
 class MenuViewModel : ObservableObject {
     
     @Published var inputText : String = ""
